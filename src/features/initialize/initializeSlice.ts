@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../app/store";
 import getRandomNumber from "./initializeAPI";
 
 export interface InitializeState {
@@ -33,7 +34,7 @@ export const initializeSlice = createSlice({
       })
       .addCase(randomNumberAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.value += action.payload;
+        state.value = action.payload;
       })
       .addCase(randomNumberAsync.rejected, (state) => {
         state.status = "failed";
@@ -42,5 +43,6 @@ export const initializeSlice = createSlice({
 });
 
 export const randomNumber = initializeSlice;
+export const selectNumber = (state: RootState) => state.initialize.value; //coger el valor
 
 export default initializeSlice.reducer;
