@@ -9,6 +9,12 @@ export function Initialize() {
   return (
     <div>
       <div className={styles.row}>
+        <div className="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <span className={styles.value}>{count}</span>
         <button
           className={styles.button}
