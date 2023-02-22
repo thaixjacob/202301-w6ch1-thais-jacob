@@ -44,5 +44,6 @@ export const initializeSlice = createSlice({
 
 export const randomNumber = initializeSlice;
 export const selectNumber = (state: RootState) => state.initialize.value; //coger el valor
+export const selectStatus = (state: RootState) => state.initialize.status;
 
 export default initializeSlice.reducer;
